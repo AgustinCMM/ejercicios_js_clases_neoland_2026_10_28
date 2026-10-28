@@ -294,6 +294,22 @@ a {
   color: var(--success);
 }
 
+.status-toggle {
+  border: 1px solid transparent;
+  appearance: none;
+  cursor: pointer;
+  transition: background 140ms ease, transform 140ms ease;
+}
+
+.status-toggle:hover {
+  filter: brightness(0.97);
+  transform: translateY(-1px);
+}
+
+.status-toggle:active {
+  transform: translateY(0);
+}
+
 .card-arrow {
   color: var(--brand);
   font-size: 1.05rem;
@@ -365,12 +381,24 @@ a {
   border-bottom: 1px solid var(--line);
 }
 
+.exercise-heading-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.exercise-heading-topline .status-toggle {
+  margin-left: auto;
+}
+
 .exercise-heading h1 {
+  margin-top: 16px;
   font-size: clamp(1.9rem, 5vw, 2.8rem);
 }
 
 .exercise-heading .level-pill {
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 .level-context {
@@ -427,27 +455,6 @@ a {
   border: 1px dashed #d6d5e4;
   border-radius: 10px;
   background: #fff;
-}
-
-.progress-control {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  margin-top: 18px;
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: 13px;
-  background: #fff;
-  color: var(--ink);
-  font-size: 0.9rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.progress-control input {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--brand);
 }
 
 .exercise-sequence {
@@ -507,6 +514,14 @@ a {
 
   .main-panel {
     border-radius: 18px;
+  }
+
+  .exercise-heading-topline {
+    align-items: flex-start;
+  }
+
+  .exercise-heading .level-pill {
+    max-width: calc(100% - 88px);
   }
 
   .exercise-grid {

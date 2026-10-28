@@ -79,17 +79,14 @@ function renderProgress() {
       badge.textContent = resolved ? 'Resuelto' : 'Pendiente';
       badge.dataset.status = resolved ? 'resolved' : 'pending';
     }
-
-    const checkbox = element.matches('[data-progress-checkbox]')
-      ? element
-      : element.querySelector('[data-progress-checkbox]');
-    if (checkbox) {
-      checkbox.checked = resolved;
-    }
   });
 
-  document.querySelectorAll('[data-progress-checkbox]').forEach((checkbox) => {
-    checkbox.checked = progress[checkbox.dataset.progressCheckbox] === 'resolved';
+  document.querySelectorAll('[data-progress-toggle]').forEach((button) => {
+    const resolved = progress[button.dataset.progressToggle] === 'resolved';
+    button.textContent = resolved ? 'Resuelto' : 'Pendiente';
+    button.dataset.status = resolved ? 'resolved' : 'pending';
+    button.setAttribute('aria-pressed', String(resolved));
+    button.setAttribute('aria-label', resolved ? 'Marcar como pendiente' : 'Marcar como resuelto');
   });
 }
 
@@ -153,9 +150,10 @@ if (!storageAvailable) {
   setNotice('El almacenamiento local no está disponible. Los cambios solo se conservarán mientras esta página siga abierta.');
 }
 
-document.querySelectorAll('[data-progress-checkbox]').forEach((checkbox) => {
-  checkbox.addEventListener('change', () => {
-    setExerciseProgress(checkbox.dataset.progressCheckbox, checkbox.checked);
+document.querySelectorAll('[data-progress-toggle]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const id = button.dataset.progressToggle;
+    setExerciseProgress(id, progress[id] !== 'resolved');
   });
 });
 

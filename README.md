@@ -27,7 +27,7 @@ Las páginas cargan sus scripts con `type="module"`. Por eso se deben abrir desd
 
 ## Escribir soluciones y consultar resultados
 
-Cada ejercicio tiene una plantilla vacía en `ejercicio-XX/js/script.js`. Escribe allí su solución. El archivo se carga como módulo ES. Cuando una consigna no especifica que el resultado deba mostrarse en pantalla o en el DOM, se consulta en la consola del navegador. La nota «(ver en consola)» aparece dentro del área `result-output`. Si una consigna requiere salida HTML o en el DOM, esa salida se presenta en pantalla.
+Cada ejercicio tiene una plantilla vacía en `ejercicio-XX/js/script.js`. Escribe allí su solución. El archivo se carga como módulo ES. Los resultados se consultan en el área `result-output`. Cuando una consigna no especifica que el resultado deba mostrarse en pantalla o en el DOM, se consulta en la consola del navegador. La nota «(ver en consola)» aparece dentro del área `result-output`. Si una consigna requiere salida HTML o en el DOM, esa salida se presenta en pantalla.
 
 ## Progreso
 
